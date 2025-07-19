@@ -1,87 +1,59 @@
+# 🛡️ Phát hiện Bất Thường trong Log DNS Inforblox bằng Học Sâu Không Giám Sát
+
+Dự án xây dựng một hệ thống phát hiện bất thường từ **log hệ thống bảo mật (security logs)** của thiết bị **DNS Inforblox** bằng kỹ thuật **học sâu không giám sát** (unsupervised deep learning).
+
+## Các Hành Vi Bất Thường Được Ghi Nhận
+
+Dưới đây là một số mẫu hành vi bất thường tiêu biểu được hệ thống phát hiện trong quá trình phân tích log từ thiết bị **DNS Inforblox**:
+
+- 🔁 **UDP/TCP DNS Flood**  
+  Lượng lớn truy vấn DNS được gửi trong thời gian ngắn từ nhiều nguồn hoặc một nguồn duy nhất.  
+  → Dấu hiệu rõ ràng của **tấn công DDoS** vào hệ thống DNS.
+
+- 📈 **Truy vấn từ một IP duy nhất với tần suất đột biến**  
+  - Có thể là truy vấn tự động, dò quét dịch vụ DNS, hoặc từ **malware điều khiển từ xa**.
+  - Tần suất truy vấn vượt mức bình thường trong thời gian ngắn.
+
+- ❌ **Truy vấn bất thường theo phản hồi DNS**:
+  - **NXDOMAIN**: Truy vấn tới domain không tồn tại
+  - **REFUSED**: Bị hệ thống từ chối truy vấn
+  - **FORMAT ERROR**: Lỗi cú pháp định dạng DNS  
+  → Đây thường là **dấu hiệu của botnet hoặc công cụ tấn công DNS**.
+
+- 🔐 **Truy vấn có cấu trúc bất thường / entropy cao**  
+  - Domain dài, nhiều ký tự ngẫu nhiên → nghi vấn **DNS Tunneling** hoặc **DGA (Domain Generation Algorithm)**.
+  - Entropy cao → không giống các domain bình thường.
+
+- ⚠️ **Truy vấn bị drop ngay hoặc cảnh báo nhưng chưa chặn**  
+  - Những truy vấn này không được xử lý hoặc chỉ cảnh báo (alert-only)  
+  → Đây có thể là **hành vi nguy hiểm tiềm ẩn**, cần theo dõi thêm hoặc nâng mức cảnh báo.
+
+---
+
+> 📌 Ghi chú: Việc xác định bất thường không chỉ dựa vào tần suất, mà còn dựa vào **ngữ cảnh, nguồn phát**, và **mẫu hành vi theo thời gian**.
 
 
-## Results
+mà **không cần dữ liệu gán nhãn**.
 
-### Univariate NAB Dataset
+---
 
-Below is an example run on the **NAB** (univariate) dataset:
+> ⚠️ **Lưu ý bảo mật**:
+>
+> Dự án sử dụng dữ liệu **thực tế từ hệ thống mạng nội bộ của một ngân hàng**.  
+> Do vậy, **dữ liệu không được phép chia sẻ công khai** dưới bất kỳ hình thức nào nhằm tuân thủ chính sách bảo mật và quy định nội bộ.
+>
+> Mọi thử nghiệm, huấn luyện và đánh giá đều được thực hiện trong môi trường kiểm soát, tuân thủ nghiêm ngặt yêu cầu bảo mật thông tin.
 
-- **Final Training Loss**: `0.0022`  
-- **Final Validation Loss**: `0.007`  
-- **Dynamic Threshold**: `0.031`  
-- **Detected Anomalies**: `[54, 55, 84, 134, 135, 139, 142, 144]`
+---
+## Đặc trưng (Features) Đưa Vào Mô Hình
 
-<p float="left"> <img src="images/nab/predictions.png" alt="Predicted Future Values" width="49%"> <img src="images/nab/anomalies.png" alt="Detected Anomalies" width="49%"> </p>
+### 🗂️ Nguồn dữ liệu:
+- **Thiết bị**: Log từ hệ thống **DNS Infoblox**
+- **Số lượng bản ghi**: `12,960` dòng log
+- **Số trường dữ liệu (features)**: `30` trường
+- **Khoảng thời gian ghi nhận**:  
+  Dữ liệu được ghi **liên tục theo từng phút**, từ:  
+  ⏱️ `'2025-06-21 23:59:00'` → `'2025-06-30 23:58:00'`  
+  Tổng thời gian: **10 ngày**
 
 
-### Multivariate Air Quality Dataset
-
-
-The model also was tested on the **Air Quality** dataset from the UCI Repository:
-
-- **Number of Features**: `15` (Date, Time, CO, PT08.S1, PT08.S2, etc.)  
-- **Window Size**: `24` (one day of hourly data)  
-- **Final Training Loss**: `0.043`
-- **Final Validation Loss**: `0.066`
-- **Per-Feature Thresholds**: `[0.191, 0.003, 0.175, ...]`  
-- **Detected Anomalies** (per feature):
-  ```
-  {
-    "Feature_1": [16, 17, 54, 55, 56, 147, ...],
-    "Feature_2": [427, 595, 643, 667, 673, ...],
-    ...
-  }
-  ```
-
-  An example visualization of one of its features:
-
-<p float="left"> <img src="images/air_quality/predictions.png" alt="Predicted Future Values" width="49%"> <img src="images/air_quality/anomalies.png" alt="Detected Anomalies" width="49%"> </p>
-
-## Usage
-
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/EnsiyeTahaei/DeepAnT.git
-    cd DeepAnT
-    ```
-
-2. **Install the required packages**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Configure Dataset**:
-    - Edit `config.yaml` to set `dataset_name`, `window_size`, and other hyperparameters. Currently, two datasets are configured:
-        - NAB (for univariate)
-        - Air Quality (for multivariate)
-
-4. **Run the main script**:
-    ```bash
-    python main.py --dataset_name <dataset_name>
-    ```
-
-Note: `dataset_name` is optional. If not provided, it defaults to "Air Quality" (as it is specified in `config.yaml`).
-
-## License
-
-This project is licensed under the MIT License.
-
-## Citation
-
-If you use this code for your research, please cite the original paper:
-
-@ARTICLE{8581424,
-  author={Munir, Mohsin and Siddiqui, Shoaib Ahmed and Dengel, Andreas and Ahmed, Sheraz},
-  journal={IEEE Access}, 
-  title={DeepAnT: A Deep Learning Approach for Unsupervised Anomaly Detection in Time Series}, 
-  year={2019},
-  volume={7},
-  number={},
-  pages={1991-2005},
-  keywords={Anomaly detection;Time series analysis;Clustering algorithms;Data models;Benchmark testing;Heuristic algorithms;Anomaly detection;artificial intelligence;convolutional neural network;deep neural networks;recurrent neural networks;time series analysis},
-  doi={10.1109/ACCESS.2018.2886457}
-}
-
-## Questions or Contributions
-
-Feel free to open an issue if you want to contribute further improvements.
