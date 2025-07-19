@@ -117,7 +117,7 @@ mà **không cần dữ liệu gán nhãn**.
 ---
 
 <div align="center">
-  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/vaidvaid.png" alt="Validation Loss" width="45%" />
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/vaid.png" alt="Validation Loss" width="45%" />
   <p style="font-size:14px; color:gray;"><em>Biểu đồ Validation Loss</em></p>
 </div>
 
