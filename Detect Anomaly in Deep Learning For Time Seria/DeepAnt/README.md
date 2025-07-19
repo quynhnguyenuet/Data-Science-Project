@@ -146,7 +146,7 @@ mà **không cần dữ liệu gán nhãn**.
 </div>
 ### 📊 Báo cáo trên Power BI
 <div align="center">
-  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/Bao_cao.jpg" alt="Power BI Report" width="80%" />
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/Bao_cao.png" alt="Power BI Report" width="80%" />
   <br/>
   <sub><em>Ảnh chụp báo cáo tổng hợp từ Power BI</em></sub>
 </div>
