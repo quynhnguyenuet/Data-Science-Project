@@ -89,16 +89,16 @@ mà **không cần dữ liệu gán nhãn**.
 
 ### Phân phối và mối quan hệ tương quan của các đặc trưng
 
-<div align="center">
-  <figure>
+<div align="center" style="font-size:14px; color: gray;">
+  <div>
+    <p><em>Biểu đồ phân phối đặc trưng (Histogram)</em></p>
     <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image.png" alt="Histogram" width="70%" />
-    <figcaption><strong>Biểu đồ phân phối đặc trưng (Histogram)</strong></figcaption>
-  </figure>
+  </div>
 
   <br/>
 
-  <figure>
+  <div>
+    <p><em>Ma trận tương quan giữa các đặc trưng</em></p>
     <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image_1.png" alt="Correlation Matrix" width="70%" />
-    <figcaption><strong>Ma trận tương quan giữa các đặc trưng</strong></figcaption>
-  </figure>
+  </div>
 </div>
