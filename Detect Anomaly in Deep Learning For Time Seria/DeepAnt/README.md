@@ -134,3 +134,12 @@ mà **không cần dữ liệu gán nhãn**.
 </div>
 📎 **Chi tiết mô hình và biểu đồ xem tại:**  
 [🔗 PowerPoint trình bày dự án](https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/DeepAnt%20For%20Detect%20Anomaly%20Time%20Serial.pptx) 
+### Kết quả
+### 📊 Kết quả: Biểu đồ điểm bất thường
+
+<div align="center">
+  <a href="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/results/anomaly_plot_interactive.html" target="_blank">
+  </a>
+  <br/>
+  <sub><em>Nhấn vào biểu đồ để xem phiên bản tương tác (.html)</em></sub>
+</div>
