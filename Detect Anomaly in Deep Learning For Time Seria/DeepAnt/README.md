@@ -92,13 +92,37 @@ mà **không cần dữ liệu gán nhãn**.
 <div align="center" style="font-size:14px; color: gray;">
   <div>
     <p><em>Biểu đồ phân phối đặc trưng (Histogram)</em></p>
-    <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image.png" alt="Histogram" width="70%" />
+    <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image.png" alt="Histogram" width="100100%" />
   </div>
 
   <br/>
 
   <div>
     <p><em>Ma trận tương quan giữa các đặc trưng</em></p>
-    <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image_1.png" alt="Correlation Matrix" width="70%" />
+    <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image_1.png" alt="Correlation Matrix" width="100%" />
   </div>
 </div>
+### 📉 Quá trình huấn luyện mô hình
+
+<div align="center">
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/train_loss.png" alt="Train Loss" width="70%" />
+  <p style="font-size:14px; color:gray;"><em>Biểu đồ Train Loss</em></p>
+</div>
+
+**Nhận xét Train Loss:**
+- Đường cong train_loss có xu hướng giảm đều, từ khoảng `0.0484` xuống `0.0471`.
+- Cho thấy quá trình huấn luyện ổn định, mô hình học tốt từ dữ liệu huấn luyện.
+- Không có dấu hiệu overfitting hoặc dao động bất thường.
+
+---
+
+<div align="center">
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/val_loss.png" alt="Validation Loss" width="70%" />
+  <p style="font-size:14px; color:gray;"><em>Biểu đồ Validation Loss</em></p>
+</div>
+
+**Nhận xét Validation Loss:**
+- Biểu đồ dao động mạnh, không mượt mà như train_loss → thể hiện độ biến động của dữ liệu kiểm tra.
+- Tuy nhiên, xu hướng tổng thể vẫn là giảm dần, từ ~`0.045` về ~`0.0433`.
+- Cho thấy mô hình có cải thiện hiệu năng trên tập validation dù dữ liệu có nhiễu.
+
