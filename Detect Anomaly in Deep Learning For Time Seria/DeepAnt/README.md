@@ -31,8 +31,6 @@ Dưới đây là một số mẫu hành vi bất thường tiêu biểu đượ
 ---
 
 > 📌 Ghi chú: Việc xác định bất thường không chỉ dựa vào tần suất, mà còn dựa vào **ngữ cảnh, nguồn phát**, và **mẫu hành vi theo thời gian**.
-
-
 mà **không cần dữ liệu gán nhãn**.
 
 ---
@@ -56,4 +54,36 @@ mà **không cần dữ liệu gán nhãn**.
   ⏱️ `'2025-06-21 23:59:00'` → `'2025-06-30 23:58:00'`  
   Tổng thời gian: **10 ngày**
 
+| STT | Tên feature                     | Trường liên quan        | Định nghĩa                                                        | Ý nghĩa & ảnh hưởng đến mô hình                                                                 |
+|-----|----------------------------------|--------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| 1   | time_window                     | Date, time               | Khoảng thời gian 1 phút ghi nhận log                              | Đơn vị thời gian cơ bản để gom nhóm log theo chuỗi thời gian                                   |
+| 2   | rpz_block_count                 | msg                      | Tổng số truy vấn bị chặn bởi DNS firewall                         | Cho thấy mức độ truy cập đến domain nguy hiểm                                                   |
+| 3   | rpz_qname_count                | log_type                 | Truy vấn bị chặn dựa trên tên miền (QNAME)                        | Phản ánh truy cập đến các domain độc hại                                                        |
+| 4   | rpz_ip_count                   | msg                      | Truy vấn bị chặn dựa trên IP đích                                 | Dấu hiệu IP đích nằm trong blacklist                                                            |
+| 5   | unique_ip_rpz_hit_count       | msg, client_ip           | Số lượng truy vấn lớn nhất từ 1 IP trong 1 phút                   | Đánh giá mức độ phân tán tấn công                                                               |
+| 6   | max_queries_hit_count_from_one_ip | msg, client_ip        | Số lượng truy vấn lớn nhất từ 1 IP                                | Dấu hiệu DDoS hoặc quét port                                                                    |
+| 7   | refused_count                  | log_type                 | Truy vấn bị từ chối xử lý                                         | Có thể do cấu hình sai hoặc truy cập trái phép                                                  |
+| 8   | format_error_count            | log_type                 | Truy vấn DNS sai định dạng                                        | Dấu hiệu của fuzzing hoặc công cụ tấn công                                                      |
+| 9   | resolver_error_count          | log_type                 | Truy vấn đến DNS không được ủy quyền                              | Có thể là tấn công hoặc lỗi hệ thống                                                            |
+| 10  | resolver_priming_count        | msg                      | Truy vấn khởi tạo lại root zone                                   | Đột biến có thể là tấn công hoặc hệ thống bị can thiệp                                         |
+| 11  | nxdomain_query                | msg                      | Truy vấn đến domain không tồn tại                                 | Dấu hiệu domain giả trong DGA hoặc malware                                                      |
+| 12  | txt_query                     | qtype                    | Truy vấn bản ghi TXT                                              | Có thể bị dùng cho DNS tunneling                                                                |
+| 13  | early_drop_count             | event_name               | Truy vấn bị chặn ngay khi bắt đầu                                 | Phản ánh cơ chế phòng thủ chủ động mạnh                                                         |
+| 14  | multiple_questions_count     | event_name               | Truy vấn chứa nhiều câu hỏi DNS                                   | Vi phạm RFC, dấu hiệu malware/scanner                                                           |
+| 15  | flood_event_count_udp        | category, event_name     | Ghi nhận tấn công UDP Flood                                       | Loại tấn công volumetric phổ biến                                                               |
+| 16  | flood_event_count_tcp        | category, event_name     | Ghi nhận tấn công TCP Flood                                       | Tinh vi hơn, lợi dụng kết nối hợp lệ                                                            |
+| 17  | unique_ips_flagged_flood     | category, src_ip         | Số IP bị gắn cờ flood                                             | Đánh giá mức phân tán của tấn công (botnet)                                                    |
+| 18  | ntp_drop_count               | event_name, category, act| Gói NTP bị loại bỏ                                                | Dấu hiệu tấn công NTP reflection                                                               |
+| 19  | max_hit_count                | hit_count                | Số truy vấn bất thường cao nhất trong 1 phút                      | Phát hiện đỉnh điểm tấn công                                                                    |
+| 20  | avg_hit_count                | hit_count                | Trung bình số truy vấn bất thường                                 | Phát hiện hành vi nghi vấn kéo dài                                                              |
+| 21  | count_act_drop               | act                      | Truy vấn bị chặn (DROP)                                           | Biểu thị phản ứng bảo mật mạnh                                                                  |
+| 22  | count_act_alert              | act                      | Truy vấn bị cảnh báo (ALERT)                                      | Cần theo dõi thêm, nghi vấn                                                                     |
+| 23  | count_cat_default_drop       | category                 | Truy vấn bị chặn theo rule mặc định                               | Vi phạm chính sách cơ bản                                                                       |
+| 24  | count_cat_icmp               | category                 | Truy vấn/dữ liệu ICMP                                             | Dễ bị lợi dụng để dò quét hoặc tấn công                                                         |
+| 25  | count_cat_blacklist          | category                 | Truy vấn đến domain trong blacklist                               | Dấu hiệu nguy hiểm (malware, phishing)                                                         |
+| 26  | count_cat_msg_types          | category                 | Loại bản tin DNS vi phạm chuẩn                                    | Dấu hiệu hệ thống lỗi hoặc mã độc                                                               |
+| 27  | count_fqns_na_or_null        | fqdn                     | Truy vấn không có FQDN hợp lệ                                     | Dấu hiệu giả mạo, ẩn danh, bypass                                                               |
+| 28  | count_cat_protocol_anomaly   | category                 | Gói DNS sai chuẩn giao thức                                       | Dấu hiệu tấn công hoặc tunneling                                                               |
+| 29  | fqdn_entropy_max             | fqdn                     | Độ ngẫu nhiên cao nhất của domain                                 | Dấu hiệu DGA, tunneling, malware                                                                |
+| 30  | fqdn_entropy_avg             | fqdn                     | Độ ngẫu nhiên trung bình của domain                               | Dùng đánh giá rủi ro tổng thể                                                                  |
 
