@@ -105,7 +105,7 @@ mà **không cần dữ liệu gán nhãn**.
 ### 📉 Quá trình huấn luyện mô hình
 
 <div align="center">
-  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/train_loss.png" alt="Train Loss" width="70%" />
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/Train_loss.jpg" alt="Train Loss" width="70%" />
   <p style="font-size:14px; color:gray;"><em>Biểu đồ Train Loss</em></p>
 </div>
 
@@ -117,7 +117,7 @@ mà **không cần dữ liệu gán nhãn**.
 ---
 
 <div align="center">
-  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/val_loss.png" alt="Validation Loss" width="70%" />
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/Vaid_loss.jpg" alt="Validation Loss" width="70%" />
   <p style="font-size:14px; color:gray;"><em>Biểu đồ Validation Loss</em></p>
 </div>
 
@@ -126,3 +126,8 @@ mà **không cần dữ liệu gán nhãn**.
 - Tuy nhiên, xu hướng tổng thể vẫn là giảm dần, từ ~`0.045` về ~`0.0433`.
 - Cho thấy mô hình có cải thiện hiệu năng trên tập validation dù dữ liệu có nhiễu.
 
+<div align="center">
+  <img src="https://github.com/yourusername/yourrepo/blob/main/images/train_refused_count.png" alt="Training Loss - refused_count" width="60%" />
+  <br/>
+  <sub>Biểu đồ Train/Validation cho tất cả feature></sub>
+</div>
