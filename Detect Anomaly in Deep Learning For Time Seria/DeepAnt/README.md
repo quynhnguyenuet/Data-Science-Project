@@ -87,3 +87,7 @@ mà **không cần dữ liệu gán nhãn**.
 | 29  | fqdn_entropy_max             | fqdn                     | Độ ngẫu nhiên cao nhất của domain                                 | Dấu hiệu DGA, tunneling, malware                                                                |
 | 30  | fqdn_entropy_avg             | fqdn                     | Độ ngẫu nhiên trung bình của domain                               | Dùng đánh giá rủi ro tổng thể                                                                  |
 
+### Phân phối và mối quan hệ tương quan của các đặc trưng
+
+![Histogram](images/hist_example.png)
+![Ma trận tương quan]()
