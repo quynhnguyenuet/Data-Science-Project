@@ -1,0 +1,18 @@
+[project]
+name = "tsa"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.2.0",
+    "matplotlib>=3.3.4",
+    "tensorboardX>=2.1",
+    "tqdm>=4.59.0",
+    "hydra-core>=1.2.0",
+    "scikit-learn>=1.5.2",
+    "pandas>=2.2.3"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,34 @@
+# config.yaml
+
+defaults:
+  - dataset: log_dns
+
+common:
+  mode: inference         # inference hoặc train
+  seed: 42 
+  anomaly_threshold_z: 8                  # Đảm bảo tái lập kết quả
+  max_initial_steps: 10         # Nếu bạn dùng warm-up model
+  max_steps: 500                # Không quá cao vì dữ liệu chỉ 1 ngày
+  batch_size: 32                # Phù hợp với dữ liệu nhỏ
+  patience: 15                  # Dừng sớm nếu không cải thiện sau 20 epoch
+  lr: 1e-3                      # Learning rate chuẩn
+  hidden_size: 128               # Kích thước LSTM/dense layer nhỏ vừa
+  run_dir: ./experiment         # Nơi lưu kết quả huấn luyện
+  new_data_path: E:\Test LSTM autoencoder\DeepAnT-Anomaly-Detection\data\DNS_LOGS\detection_anomaly_log_dns.csv # Đường dẫn đến data mới cần phát hiện bất thường 
+  output_dir: ./results                # lưu kết quả 
+  ckpt_path: auto
+dataset:
+  # nab:
+  #   dataset_name: NAB
+  #   window_size: 10
+  #   run_dir: ${common.run_dir}/nab
+
+  # air_quality:
+  #   dataset_name: AirQuality
+  #   window_size: 24
+  #   run_dir: ${common.run_dir}/airQuality
+  log_dns:
+    dataset_name: DNS_LOGS
+    window_size : 60
+    run_dir : ${common.run_dir}/log_dns
+    

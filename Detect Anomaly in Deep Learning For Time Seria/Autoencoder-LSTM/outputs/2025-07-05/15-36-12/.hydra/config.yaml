@@ -1,0 +1,37 @@
+data:
+  _target_: tsa.dataset.TimeSeriesDataset
+  batch_size: 16
+  categorical_cols: []
+  index_col: Date_Time
+  target_col: []
+  data_path: E:\Test LSTM autoencoder\time-series-autoencoder-master\data\AirQualityUCI.csv
+  prediction_window: 1
+  seq_length: 3
+  task:
+    _target_: tsa.dataset.Tasks
+    value: reconstruction
+training:
+  denoising: false
+  directions: 1
+  gradient_accumulation_steps: 1
+  hidden_size_encoder: 64
+  hidden_size_decoder: 64
+  input_att: true
+  lr: 1.0e-05
+  lrs_step_size: 5000
+  max_grad_norm: 0.1
+  num_epochs: 100
+  output_size: 13
+  reg1: true
+  reg2: false
+  reg_factor1: 0.0001
+  reg_factor2: 0.0001
+  seq_len: ${data.seq_length}
+  temporal_att: true
+general:
+  do_eval: true
+  do_train: true
+  logging_steps: 100
+  output_dir: output
+  save_steps: 5000
+  eval_during_training: true
