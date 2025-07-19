@@ -1,36 +1,4 @@
-# DeepAnT: A Deep Learning Approach for Unsupervised Anomaly Detection in Time Series
 
-This repository contains an implementation of the paper **"DeepAnT: A Deep Learning Approach for Unsupervised Anomaly Detection in Time Series."** The original paper can be found [here](https://ieeexplore.ieee.org/document/8581424).
-
-## About the Paper
-
-The paper, authored by Mohsin Munir, Shoaib Ahmed Siddiqui, Andreas Dengel, and Sheraz Ahmed, presents DeepAnT, a novel deep learning model designed for unsupervised anomaly detection in time series data. 
-
-- **Model Structure**: 
-The model consists of a sequence of convolutional layers followed by fully connected layers to capture local patterns and long-term dependencies. Below is the model structure from the paper:
-![DeepAnT Structure](images/structure.png)
-- **Unsupervised Learning**: Suitable for applications with scarce labeled anomalies.
-- **Anomaly Detection**: Detects anomalies by comparing predicted values with actual values and calculating anomaly scores.
-
-## Implementation Details
-
-This implementation follows the architecture and methodology described in the paper using PyTorch and PyTorch Lightning.
-
-- **Sliding Window**: Preprocesses the time series data using a sliding window approach, converting raw sequences into overlapping windows (input) and the subsequent step (target).
-- **Forecasting-Based Model**: Predicts the next value in the sequence. Anomalies are inferred by large deviations of the predicted value from the actual value.
-- **Training and Validation**: 
-    - Initial training without considering the validation loss.
-    - After the initial training, the best model is selected based on the validation loss, using early stopping to prevent overfitting.
-- **Dynamic Threshold Calculation**: Thresholds are computed per feature dimension based on the anomaly score distribution (mean ± N standard deviations).
-
-- **Visualization**: Provides visualizations for predicted sequences as well as detected anomalies.
-
-## Multivariate Support
-
-This implementation now supports both **univariate** and **multivariate time series** datasets. When `feature_dim > 1`, it automatically:
-- Calculates **per-feature** thresholds.  
-- Identifies anomalies in each feature separately.  
-- Creates subplots for each feature to show anomalies per feature dimension.
 
 ## Results
 
