@@ -139,7 +139,8 @@ mà **không cần dữ liệu gán nhãn**.
 
 <div align="center">
   <a href="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/results/anomaly_plot_interactive.html" target="_blank">
+    <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/results/Screenshot.png" alt="Biểu đồ điểm bất thường" width="80%" />
   </a>
   <br/>
-  <sub><em>Nhấn vào biểu đồ để xem phiên bản tương tác (.html)</em></sub>
+  <sub><em>Nhấn vào ảnh để xem biểu đồ tương tác (HTML)</em></sub>
 </div>
