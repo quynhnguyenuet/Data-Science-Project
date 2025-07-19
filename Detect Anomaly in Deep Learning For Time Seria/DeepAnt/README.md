@@ -134,12 +134,8 @@ mà **không cần dữ liệu gán nhãn**.
 </div>
 📎 <a href="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/DeepAnt%20For%20Detect%20Anomaly%20Time%20Serial.pptx" target="_blank">Xem PowerPoint trình bày</a>
 
-
-
-
-
 ### Kết quả
-### 📊 Kết quả: Biểu đồ điểm bất thường
+### 📊 Biểu đồ điểm bất thường
 
 <div align="center">
   <a href="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/results/anomaly_plot_interactive.html" target="_blank">
@@ -147,4 +143,10 @@ mà **không cần dữ liệu gán nhãn**.
   </a>
   <br/>
   <sub><em>Nhấn vào ảnh để xem biểu đồ tương tác (HTML)</em></sub>
+</div>
+### 📊 Báo cáo trên Power BI
+<div align="center">
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/Bao_cao.jpg" alt="Power BI Report" width="80%" />
+  <br/>
+  <sub><em>Ảnh chụp báo cáo tổng hợp từ Power BI</em></sub>
 </div>
