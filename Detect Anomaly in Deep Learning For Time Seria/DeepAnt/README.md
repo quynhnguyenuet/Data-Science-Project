@@ -15,9 +15,9 @@ Dưới đây là một số mẫu hành vi bất thường tiêu biểu đượ
   - Tần suất truy vấn vượt mức bình thường trong thời gian ngắn.
 
 -  **Truy vấn bất thường theo phản hồi DNS**:
-  - **NXDOMAIN**: Truy vấn tới domain không tồn tại
-  - **REFUSED**: Bị hệ thống từ chối truy vấn
-  - **FORMAT ERROR**: Lỗi cú pháp định dạng DNS  
+      - **NXDOMAIN**: Truy vấn tới domain không tồn tại
+      - **REFUSED**: Bị hệ thống từ chối truy vấn
+      - **FORMAT ERROR**: Lỗi cú pháp định dạng DNS  
   → Đây thường là **dấu hiệu của botnet hoặc công cụ tấn công DNS**.
 
 -  **Truy vấn có cấu trúc bất thường / entropy cao**  
