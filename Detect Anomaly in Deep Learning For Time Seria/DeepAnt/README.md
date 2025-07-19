@@ -110,7 +110,7 @@ mà **không cần dữ liệu gán nhãn**.
 </div>
 
 **Nhận xét Train Loss:**
-- Đường cong train_loss có xu hướng giảm đều, từ khoảng `0.0484` xuống `0.0471`.
+- Đường cong `train_loss` có xu hướng giảm đều, từ khoảng `0.0484` xuống `0.0471`.
 - Cho thấy quá trình huấn luyện ổn định, mô hình học tốt từ dữ liệu huấn luyện.
 - Không có dấu hiệu overfitting hoặc dao động bất thường.
 
@@ -122,12 +122,13 @@ mà **không cần dữ liệu gán nhãn**.
 </div>
 
 **Nhận xét Validation Loss:**
-- Biểu đồ dao động mạnh, không mượt mà như train_loss → thể hiện độ biến động của dữ liệu kiểm tra.
+- Biểu đồ dao động mạnh, không mượt mà như `train_loss` → thể hiện độ biến động của dữ liệu kiểm tra.
 - Tuy nhiên, xu hướng tổng thể vẫn là giảm dần, từ ~`0.045` về ~`0.0433`.
 - Cho thấy mô hình có cải thiện hiệu năng trên tập validation dù dữ liệu có nhiễu.
 
+---
+
 <div align="center">
-  <img src="https://github.com/yourusername/yourrepo/blob/main/images/train_refused_count.png" alt="Training Loss - refused_count" width="60%" />
-  <br/>
-  <sub>Biểu đồ Train/Validation cho tất cả feature></sub>
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/anomalies_visualization.png" alt="Training Loss - All Features" width="70%" />
+  <p style="font-size:14px; color:gray;"><em>Biểu đồ Train/Validation Loss cho tất cả các feature</em></p>
 </div>
