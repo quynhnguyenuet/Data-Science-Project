@@ -89,5 +89,7 @@ mà **không cần dữ liệu gán nhãn**.
 
 ### Phân phối và mối quan hệ tương quan của các đặc trưng
 
-![Histogram](images/hist_example.png)
-![Ma trận tương quan]()
+<div align="center">
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image.png" alt="Histogram" width="45%" />
+  <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/image_1.png" alt="Correlation Matrix" width="45%" />
+</div>
