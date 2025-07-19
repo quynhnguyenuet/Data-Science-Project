@@ -7,12 +7,12 @@ Dự án xây dựng một hệ thống phát hiện bất thường từ **log 
 Dưới đây là một số mẫu hành vi bất thường tiêu biểu được hệ thống phát hiện trong quá trình phân tích log từ thiết bị **DNS Inforblox**:
 
 -  **UDP/TCP DNS Flood**  
-  Lượng lớn truy vấn DNS được gửi trong thời gian ngắn từ nhiều nguồn hoặc một nguồn duy nhất.  
-  → Dấu hiệu rõ ràng của **tấn công DDoS** vào hệ thống DNS.
+      Lượng lớn truy vấn DNS được gửi trong thời gian ngắn từ nhiều nguồn hoặc một nguồn duy nhất.  
+      → Dấu hiệu rõ ràng của **tấn công DDoS** vào hệ thống DNS.
 
 -  **Truy vấn từ một IP duy nhất với tần suất đột biến**  
-  - Có thể là truy vấn tự động, dò quét dịch vụ DNS, hoặc từ **malware điều khiển từ xa**.
-  - Tần suất truy vấn vượt mức bình thường trong thời gian ngắn.
+      - Có thể là truy vấn tự động, dò quét dịch vụ DNS, hoặc từ **malware điều khiển từ xa**.
+      - Tần suất truy vấn vượt mức bình thường trong thời gian ngắn.
 
 -  **Truy vấn bất thường theo phản hồi DNS**:
       - **NXDOMAIN**: Truy vấn tới domain không tồn tại
@@ -21,12 +21,12 @@ Dưới đây là một số mẫu hành vi bất thường tiêu biểu đượ
   → Đây thường là **dấu hiệu của botnet hoặc công cụ tấn công DNS**.
 
 -  **Truy vấn có cấu trúc bất thường / entropy cao**  
-  - Domain dài, nhiều ký tự ngẫu nhiên → nghi vấn **DNS Tunneling** hoặc **DGA (Domain Generation Algorithm)**.
-  - Entropy cao → không giống các domain bình thường.
+      - Domain dài, nhiều ký tự ngẫu nhiên → nghi vấn **DNS Tunneling** hoặc **DGA (Domain Generation Algorithm)**.
+      - Entropy cao → không giống các domain bình thường.
 
 -  **Truy vấn bị drop ngay hoặc cảnh báo nhưng chưa chặn**  
-  - Những truy vấn này không được xử lý hoặc chỉ cảnh báo (alert-only)  
-  → Đây có thể là **hành vi nguy hiểm tiềm ẩn**, cần theo dõi thêm hoặc nâng mức cảnh báo.
+      - Những truy vấn này không được xử lý hoặc chỉ cảnh báo (alert-only)  
+      → Đây có thể là **hành vi nguy hiểm tiềm ẩn**, cần theo dõi thêm hoặc nâng mức cảnh báo.
 
 ---
 
