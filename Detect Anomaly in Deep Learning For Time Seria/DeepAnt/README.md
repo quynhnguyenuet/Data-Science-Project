@@ -132,7 +132,9 @@ mà **không cần dữ liệu gán nhãn**.
   <img src="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/images/anomalies_visualization.png" alt="Training Loss - All Features" width="70%" />
   <p style="font-size:14px; color:gray;"><em>Biểu đồ Train/Validation Loss cho tất cả các feature</em></p>
 </div>
-📎 [Xem PowerPoint trình bày](https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/DeepAnt%20For%20Detect%20Anomaly%20Time%20Serial.pptx)
+📎 <a href="https://github.com/quynhnguyenuet/Data-Science-Project/blob/main/Detect%20Anomaly%20in%20Deep%20Learning%20For%20Time%20Seria/DeepAnt/DeepAnt%20For%20Detect%20Anomaly%20Time%20Serial.pptx" target="_blank">Xem PowerPoint trình bày</a>
+
+
 
 
 
